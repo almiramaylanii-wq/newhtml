@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Index</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav{
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover{
+            color: yellow;
+        }
+        .container{
+            width: 80%;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        footer{
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Selamat Datang</h1>
+    <p>Website Sederhana dengan PHP</p>
+</header>
+
+<nav>
+    <a href="index.php">Home</a>
+    <a href="about.php">About</a>
+    <a href="kontak.php">Kontak</a>
+</nav>
+
+<div class="container">
+    <h2>Halaman Utama</h2>
+    <p>Selamat datang di website saya.</p>
+
+    <?php
+    date_default_timezone_set("Asia/Jakarta");
+    echo "<p>Hari ini: " . date("d-m-Y H:i:s") . "</p>";
+    ?>
+</div>
+
+<footer>
+    &copy; <?php echo date("Y"); ?> Website Saya
+</footer>
+
+</body>
+</html>
