@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowBloom - Aesthetic Pink Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-pink: #ff6b8b;
+            --soft-pink: #fbe4e8;
+            --light-pink: #fff5f7;
+            --dark-pink: #d81b60;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --shadow: 0 10px 25px rgba(255, 107, 139, 0.15);
+        }
+
+        body {
+            background-color: var(--light-pink);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-cart {
+            background-color: var(--soft-pink);
+            color: var(--dark-pink);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-cart:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #ffeef2 0%, var(--soft-pink) 100%);
+            border-radius: 24px;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: var(--dark-pink);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-pink);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--dark-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(255, 107, 139, 0.25);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--primary-pink);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            margin-bottom: 1.2rem;
+            margin-top: auto;
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: var(--soft-pink);
+            color: var(--dark-pink);
+            border: none;
+            padding: 0.75rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-add:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--soft-pink);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            color: #777;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">GlowBloom🌸</a>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Koleksi</a></li>
+                <li><a href="#">Kategori</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-cart">Keranjang (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Temukan Pesona Cantikmu Hari Ini</h1>
+            <p>Koleksi kosmetik dan aksesoris eksklusif bertema soft pink untuk menunjang penampilan harianmu.</p>
+            <a href="#katalog" class="btn-primary">Belanja Sekarang</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Banner Promo Beauty Store Pink">
+        </div>
+    </section>
+
+    <!-- PRODUCT SECTION -->
+    <main class="container" id="katalog">
+        <h2 class="section-title">Produk Terlaris</h2>
+        <p class="section-subtitle">Pilihan favorit para pecinta nuansa estetik dan warna pink</p>
+
+        <div class="product-grid">
+            
+            <!-- Produk 1: Lipstik Pink -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Velvet Pink Lipstick">
+                <div class="product-info">
+                    <span class="product-category">Makeup</span>
+                    <h3 class="product-title">Velvet Pink Lipstick</h3>
+                    <div class="product-price">Rp 129.000</div>
+                    <button class="btn-add">+ Keranjang</button>
+                </div>
+            </div>
+
+            <!-- Produk 2: Rose Face Oil / Serum -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1608248597163-49a64e408821?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Glow Rose Serum">
+                <div class="product-info">
+                    <span class="product-category">Skincare</span>
+                    <h3 class="product-title">Glow Rose Serum</h3>
+                    <div class="product-price">Rp 185.000</div>
+                    <button class="btn-add">+ Keranjang</button>
+                </div>
+            </div>
+
+            <!-- Produk 3: Botol Parfum Pink -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Blossom Eau de Parfum">
+                <div class="product-info">
+                    <span class="product-category">Parfum</span>
+                    <h3 class="product-title">Blossom Eau de Parfum</h3>
+                    <div class="product-price">Rp 250.000</div>
+                    <button class="btn-add">+ Keranjang</button>
+                </div>
+            </div>
+
+            <!-- Produk 4: Headphone Pink / Headset -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" class="product-img" alt="Pastel Pink Headphones">
+                <div class="product-info">
+                    <span class="product-category">Aksesori Tech</span>
+                    <h3 class="product-title">Pastel Pink Headphones</h3>
+                    <div class="product-price">Rp 320.000</div>
+                    <button class="btn-add">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 GlowBloom Store. Seluruh Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>
